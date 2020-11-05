@@ -50,7 +50,7 @@ export default {
       if (!noteAdded) {
         console.log("note error");
       } else {
-        this.medico = undefined;
+        this.user = undefined;
         this.texto = undefined;
         await this.$store.dispatch("loadingScreen/ISLOADING", true);
         this.$router.push({ name: "Notes" });
