@@ -13,15 +13,7 @@ moment.locale("en", {
 
 export default {
   state: {
-    data:{
-      name: "Frank Castle",
-    id: "X4388998899",
-    telefono: "555-4587",
-    notas: [],
-    historial: [],
-    stateCountry: "Los Santos",
-    photo:"https://i.gyazo.com/e3fb519a0f088b4c1cabc90ae0e3f456.png"
-    }
+    data:{}
     
   },
   actions: {
