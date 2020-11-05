@@ -13,15 +13,23 @@ moment.locale("en", {
 
 export default {
   state: {
-    name: "Frank Castle",
-    identification: "X4388998899",
+    data:{
+      name: "Frank Castle",
+    id: "X4388998899",
     telefono: "555-4587",
     notas: [],
     historial: [],
+    stateCountry: "Los Santos",
+    photo:"https://i.gyazo.com/e3fb519a0f088b4c1cabc90ae0e3f456.png"
+    }
+    
   },
   actions: {
+    SETFILESAFD: (context, file) => {
+      context.commit("setFileSAFD", file);
+    },
     ADDNOTE: (context, note) => {
-      if (note.medico && note.texto) {
+      if (note.user && note.texto) {
         context.commit("addNote", note);
         return true;
       } else {
@@ -38,15 +46,36 @@ export default {
     }
   },
   mutations: {
+    setFileSAFD: (state, file) => {
+      state.data = file;
+    },
     addNote: (state, note) => {
       note.fecha = moment();
-      state.notas.unshift(note);
+      state.data.notas.unshift(note);
+      let noteId = {
+        userId: state.data.id,
+        note: note
+      };
+      // eslint-disable-next-line no-undef
+      mp.trigger("setNoteSAFD", JSON.stringify(noteId));
     },
     removeNote: (state, index) => {
-      state.notas.splice(index, 1);
+      state.data.notas.splice(index, 1);
+      let indexId = {
+        userId: state.data.id,
+        index: index
+      };
+      // eslint-disable-next-line no-undef
+      mp.trigger("removeNoteSAFD", JSON.stringify(indexId));
     },
     addFine: (state, fine) => {
-      state.historial.unshift(fine);
+      state.data.historial.unshift(fine);
+      let fineId = {
+        userId: state.data.id,
+        fine: fine
+      };
+      // eslint-disable-next-line no-undef
+      mp.trigger("addReportSAFD", JSON.stringify(fineId));
     }
   },
 };

@@ -16,7 +16,7 @@ const routes = [
     component: () => import("../views/Files")
   },
   {
-    path: "/file",
+    path: "/file/:id",
     name: "File",
     component: () => import("../views/File")
   },
@@ -38,7 +38,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes
 });

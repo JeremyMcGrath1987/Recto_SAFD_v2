@@ -44,7 +44,7 @@ export default {
   methods: {
     addNote: async function() {
       let noteAdded = await this.$store.dispatch("ADDNOTE", {
-        medico: this.$store.state.doctor.colegiado,
+        user: this.$store.state.user.data.name,
         texto: this.texto
       });
       if (!noteAdded) {

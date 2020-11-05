@@ -5,7 +5,7 @@
         >
             <ul class="file-data">
                 <li>{{ file.name }}</li>
-                <li>{{ file.identification }}</li>
+                <li>{{ file.id }}</li>
             </ul>
         </div>
     </div>

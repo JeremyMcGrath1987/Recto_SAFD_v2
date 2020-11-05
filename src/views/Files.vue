@@ -1,13 +1,14 @@
 <template>
     <div class="files flex flex-col flex-no-wrap">
         <topbar />
-        <div class="files-wrapper flex flex-wrap p-4">
+        <div class="items-end md:w-1/3 sm:1/2 lg:1/3 mt-8"><p class="text-xl flex items-center justify-center h-full flex-col">{{this.$store.state.files.data.message}}</p></div>
+        <div v-if="!this.$store.state.files.data.message" class="files-wrapper flex flex-wrap p-4">
             <file
                 class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-1"
-                v-for="(file, index) in files"
+                v-for="(file, index) in this.$store.state.files.data"
                 :key="index"
                 :file="file"
-                @click.native="gotofile"
+                @click.native="gotofile(file.id)"
             />
         </div>
     </div>
@@ -18,34 +19,13 @@ import file from "../components/file";
 export default {
     name: "files",
     components: { topbar, file },
-    data: () => {
-        return {
-            files: [
-                {
-                    name: "Frank Castle",                    
-                    identification: "X4388998899",
-                    
-                },
-                {
-                    name: "Natasha Romanoff",
-                    identification: "N48569951",
-                    
-                },
-                {
-                    name: "harley Quinn",                    
-                    identification: "Z478451262",
-                    
-                }
-            ]
-        };
-    },
-    mounted() {
-        this.$store.dispatch("loadingScreen/ISLOADING", false);
-    },
     methods: {
-        gotofile: async function() {
-            await this.$store.dispatch("loadingScreen/ISLOADING", true);
-            await this.$router.push({ name: "File"});
+        gotofile: async function(id) {
+            /* await this.$store.dispatch("loadingScreen/ISLOADING", true); */
+            await this.$router.push({ name: "File", params: {id: id}});
+            // eslint-disable-next-line no-undef
+            mp.trigger("getFileSAFD", id);
+            
         }
     }
 };

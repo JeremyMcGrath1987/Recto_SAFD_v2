@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import loadingScreen from "./loadingScreen";
-import search from "./search";
 import file from "./file";
 import pathologies from "./pathologies";
-import doctor from "./doctor";
+import user from "./user";
+import files from "./files";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -13,9 +13,9 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     loadingScreen,
-    search,
     file,
     pathologies,
-    doctor
+    user,
+    files
   }
 });

@@ -140,7 +140,7 @@ export default {
   },
   computed: {
     filteredList() {
-      return this.$store.state.pathologies.filter(patologia => {
+      return this.$store.state.pathologies.data.filter(patologia => {
         let d = patologia.titulo.toLowerCase();
         let s = this.search.toLowerCase();
         return d.includes(s);
@@ -158,15 +158,16 @@ export default {
       await this.$store.dispatch("loadingScreen/ISLOADING", true);
       let fine = {
         arts: [],
-        medico: undefined,
+        user: undefined,
         fecha: moment()
       };
       this.selected.forEach(patologia => {
         fine.arts.push(`${patologia.titulo}`);
       });
-      fine.medico = this.$store.state.doctor.colegiado;
+      fine.user = this.$store.state.user.data.name;
       await this.$store.dispatch("ADDFINE", fine);
       await this.$router.push({ name: "File" });
+      await this.$store.dispatch("loadingScreen/ISLOADING", false);
     }
   }
 };

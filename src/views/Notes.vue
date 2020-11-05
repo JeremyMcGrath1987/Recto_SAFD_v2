@@ -12,7 +12,7 @@
             <tr class="border border-recto-dark font-bold bg-recto-dark">
               <td></td>
               <td class="px-4 py-2">Notas</td>
-              <td class="px-4 py-2">Nº colegiado</td>
+              <td class="px-4 py-2">Colegiado</td>
               <td class="px-4 py-2">fecha y hora</td>
             </tr>
             <tr
@@ -28,7 +28,7 @@
                 >X</button>
               </td>
               <td class="px-4 py-2">{{ nota.texto }}</td>
-              <td class="px-4 py-2 w-1/6">{{ nota.medico }}</td>
+              <td class="px-4 py-2 w-1/6">{{ nota.user }}</td>
               <td class="px-4 py-2 w-1/5">{{ nota.fecha }}</td>
             </tr>
           </tbody>
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     singleFile: function() {
-      return this.$store.state.file;
+      return this.$store.state.file.data;
     }
   }
 };

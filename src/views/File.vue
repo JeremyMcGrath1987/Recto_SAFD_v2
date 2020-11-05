@@ -18,7 +18,7 @@
             <tr class="border border-recto-dark font-bold bg-recto-dark">
               <td class="px-4 py-2">Enfermedades</td>
               <td class="px-4 py-2"></td>
-              <td class="px-4 py-2">Nº colegiado</td>
+              <td class="px-4 py-2">Colegiado</td>
               <td class="px-4 py-2">fecha y hora</td>
             </tr>
             <tr
@@ -30,7 +30,7 @@
                 <p v-for="(art, index) in antecedente.arts" :key="index">{{ art }}</p>
               </td>
               <td class="px-4 py-2"></td>
-              <td class="px-4 py-2 w-1/6">{{ antecedente.medico }}</td>
+              <td class="px-4 py-2 w-1/6">{{ antecedente.user }}</td>
               <td class="px-4 py-2 w-1/4">{{ antecedente.fecha }}</td>
             </tr>
           </tbody>

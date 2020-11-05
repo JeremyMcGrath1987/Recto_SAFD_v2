@@ -5,6 +5,7 @@
       alt="rugged tablet"
       class="absolute bottom-0 right-0 z-50 pointer-events-none rugged-tablet"
     />
+    <button class="buttonClose z-50" @click="closeRecto"></button>
     <div
       class="recto-screen overflow-y-scroll"
       :style="{
@@ -26,7 +27,13 @@
 import loadingScreen from "./components/loadingScreen";
 export default {
   name: "app",
-  components: { loadingScreen }
+  components: { loadingScreen },
+  methods: {
+    closeRecto: function() {
+      // eslint-disable-next-line no-undef
+        mp.trigger("closeSAFD");
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -39,6 +46,15 @@ export default {
   position: absolute;
   bottom: 238px;
   right: 100px;
+}
+.buttonClose {
+  width: 50px;
+  height: 30px;
+  background: url("./assets/images/closeButton.png");
+  border-radius: 2px solid white;
+  position: absolute;
+  bottom: 195px;
+  right: 630px;
 }
 /* width */
 ::-webkit-scrollbar {
