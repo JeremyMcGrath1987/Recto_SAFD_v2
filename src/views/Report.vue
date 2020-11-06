@@ -136,6 +136,8 @@ export default {
   components: { topBar, filePatient, fileMenu },
   mixins: [singleFile],
   async mounted() {
+    /* // eslint-disable-next-line no-undef
+    mp.trigger("getPathologiesList"); */
     await this.$store.dispatch("loadingScreen/ISLOADING", false);
   },
   computed: {

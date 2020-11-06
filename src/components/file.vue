@@ -3,9 +3,15 @@
         <div
             class="border border-recto-dark card relative hover:border-recto-light hover:shadow-lg cursor-pointer"
         >
+            <img
+                class="object-cover h-full opacity-50"
+                :src="fileImage"
+                :alt="file.name"
+            />
             <ul class="file-data">
                 <li>{{ file.name }}</li>
                 <li>{{ file.id }}</li>
+                <li>{{ file.stateCountry }}</li>
             </ul>
         </div>
     </div>
@@ -20,6 +26,12 @@ export default {
         }
     },
     computed: {
+        fileImage: function() {
+            return (
+                this.file.photo ||
+                require("../assets/images/file_bg_pattern.png")
+            );
+        }
     }
 };
 </script>
@@ -45,6 +57,6 @@ export default {
         left: 0;
         padding: 5px;
     }
-    height: 51px;
+    height: 250px;
 }
 </style>
