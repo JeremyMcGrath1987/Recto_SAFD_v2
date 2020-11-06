@@ -48,11 +48,11 @@ export default {
   right: 100px;
 }
 .buttonClose {
-  width: 68px;
-  height: 21px;
+  width: 38px;
+  height: 38px;
   position: absolute;
-  bottom: 86px;
-  right: 1173px;
+  bottom: 539px;
+  right: 1263px;
 }
 /* width */
 ::-webkit-scrollbar {
