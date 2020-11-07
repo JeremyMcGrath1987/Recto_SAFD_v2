@@ -161,7 +161,7 @@ export default {
       let fine = {
         arts: [],
         user: undefined,
-        fecha: moment().format('D MMMM YYYY, h:mm:ss')
+        fecha: moment().format('D MMMM YYYY, H:mm:ss')
       };
       this.selected.forEach(patologia => {
         fine.arts.push(`${patologia.titulo}`);
