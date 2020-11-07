@@ -42,7 +42,7 @@ export default {
       state.data = file;
     },
     addNote: (state, note) => {
-      note.fecha = moment();
+      note.fecha = moment().format('D MMMM YYYY, h:mm:ss');
       state.data.notas.unshift(note);
       let noteId = {
         userId: state.data.id,
